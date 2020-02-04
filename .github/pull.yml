@@ -1,0 +1,5 @@
+version: "1"
+rules:                      # Array of rules
+  - base: master            # Required. Target branch
+    upstream: soimort:master    # Required. Must be in the same fork network. # change `wei` to the owner of upstream repo
+    mergeMethod: none  # Optional, one of [none, merge, squash, rebase, hardreset], Default: none.

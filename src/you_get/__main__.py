@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import pretty_errors
 import getopt
 import os
 import platform

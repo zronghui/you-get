@@ -15,6 +15,9 @@ from http import cookiejar
 from importlib import import_module
 from urllib import request, parse, error
 
+from icecream import ic
+import pretty_errors
+
 from .version import __version__
 from .util import log, term
 from .util.git import get_version
@@ -1585,8 +1588,12 @@ def script_main(download, download_playlist, **kwargs):
     info_only = args.info
     if args.force:
         force = True
-    if args.skip_existing_file_size_check:
-        skip_existing_file_size_check = True
+    # if args.skip_existing_file_size_check:
+    #     skip_existing_file_size_check = True
+    skip_existing_file_size_check = True
+    if args.output_dir == '.':
+        args.output_dir = '/Volumes/My Passport/data/ut下载/0  未分类/ytdl videos/bilibili'
+    ic(args.output_dir)
     if args.auto_rename:
         auto_rename = True
     if args.url:
@@ -1647,7 +1654,8 @@ def script_main(download, download_playlist, **kwargs):
             extra['stream_id'] = stream_id
         download_main(
             download, download_playlist,
-            URLs, args.playlist,
+            URLs, True,
+            # URLs, args.playlist,
             output_dir=args.output_dir, merge=not args.no_merge,
             info_only=info_only, json_output=json_output, caption=caption,
             password=args.password,

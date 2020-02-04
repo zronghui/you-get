@@ -4,6 +4,7 @@ from ..common import *
 from ..extractor import VideoExtractor
 
 import hashlib
+import pretty_errors
 
 class Bilibili(VideoExtractor):
     name = "Bilibili"
